@@ -1,4 +1,4 @@
-name := """play-java-starter-example"""
+name := """showUp"""
 
 version := "1.0-SNAPSHOT"
 
@@ -10,8 +10,6 @@ crossScalaVersions := Seq("2.11.12", "2.12.4")
 
 libraryDependencies += guice
 
-// Test Database
-libraryDependencies += "com.h2database" % "h2" % "1.4.197"
 
 // Testing libraries for dealing with CompletionStage...
 libraryDependencies += "org.assertj" % "assertj-core" % "3.6.2" % Test
@@ -23,11 +21,6 @@ testOptions in Test := Seq(Tests.Argument(TestFrameworks.JUnit, "-a", "-v"))
 // Ebean ORM
 lazy val myProject = (project in file("."))
   .enablePlugins(PlayJava, PlayEbean)
-
-libraryDependencies ++= Seq(
-  javaJpa,
-  "org.hibernate" % "hibernate-entitymanager" % "5.1.0.Final" // replace by your jpa implementation
-)
 
 libraryDependencies += "com.h2database" % "h2" % "1.4.192"
 libraryDependencies += "io.ebean" % "ebean" % "11.22.6"
