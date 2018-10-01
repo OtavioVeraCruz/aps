@@ -1,4 +1,4 @@
-package project.models.base;
+package models;
 
 import io.ebean.Model;
 
