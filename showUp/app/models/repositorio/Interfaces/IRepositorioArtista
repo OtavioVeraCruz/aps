@@ -1,0 +1,7 @@
+package models.repositorio.interfaces;
+
+public interface IRepositorioArtista {
+
+    public void cadastrar(Artista artista);
+    public boolean existeConta(String cpf);
+}

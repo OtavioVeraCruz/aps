@@ -1,0 +1,22 @@
+package models.repositorioBD;
+
+import java.util.*;
+import javax.persistence.Id;
+
+
+public class RepositorioArtistaDB implements IRepositorioArtista {
+
+    private Finder<Long, Artista> artistaFinder;
+
+    public void cadastrar(Artista artista)
+    {
+        artista.save();
+    }
+
+    public boolean existeConta(String cpf)
+    {
+        return artistaFinder.byId(cpf) != null;
+    }
+
+
+}

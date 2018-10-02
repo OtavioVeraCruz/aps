@@ -1,0 +1,20 @@
+package models.controlador;
+
+public class ArtistaControlador implements UsuarioControlador
+{
+    ArtistaCadastro artistaCadastro;
+
+    public ArtistaControlador(ArtistaCadastro artistaCadastro) {
+        this.artistaCadastro = artistaCadastro;
+    }
+
+    public void cadastrar(Usuario usuario)
+    {
+        artistaCadastro.cadastrar(usuario);
+    }
+
+    public boolean existeUsuario(String cpf)
+    {
+        return artistaCadastro.existeArtista(cpf);
+    }
+}

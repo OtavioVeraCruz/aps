@@ -1,0 +1,20 @@
+package models.cadastro;
+
+public class ArtistaCadastro
+{
+    RepositorioArtistaDB repositorioArtistaDB;
+
+    public ArtistaCadastro(RepositorioArtistaDB repositorioArtistaDB) {
+        this.repositorioArtistaDB = repositorioArtistaDB;
+    }
+
+    public void cadastrar(Artista artista)
+    {
+        repositorioArtistaDB.cadastrar(artista);
+    }
+
+    public boolean existeConta(String cpf)
+    {
+        return repositorioArtistaDB.existeArtista(cpf);
+    }
+}
