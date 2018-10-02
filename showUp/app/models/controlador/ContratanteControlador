@@ -1,0 +1,20 @@
+package models.controlador;
+
+public class ContratanteControlador implements UsuarioControlador
+{
+    ContratanteCadastro contratanteCadastro;
+
+    public ArtistaControlador(ContratanteCadastro contratanteCadastro) {
+        this.contratanteCadastro = contratanteCadastro;
+    }
+
+    public void cadastrar(Usuario usuario)
+    {
+        contratanteCadastro.cadastrar(Usuario);
+    }
+
+    public boolean existeUsuario(String cpf)
+    {
+        return contratanteCadastro.existeContratante(cpf);
+    }
+}

@@ -1,0 +1,20 @@
+package models.cadastro;
+
+public class ContratanteCadastro
+{
+    RepositorioContratanteDB repositorioContratanteDB;
+
+    public ContratanteCadastro(RepositorioContratanteDB repositorioContratanteDB) {
+        this.repositorioContratanteDB = repositorioContratanteDB;
+    }
+
+    public void cadastrar(Contratante contratante)
+    {
+        repositorioContratanteDB.cadastrar(contratante);
+    }
+
+    public boolean existeConta(String cpf)
+    {
+        return repositorioContratanteDB.existeContratante(cpf);
+    }
+}

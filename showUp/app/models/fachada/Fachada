@@ -1,0 +1,27 @@
+package fachada;
+
+public class Fachada
+{
+    UsuarioControlador usuarioControlador;
+    private static Fachada instance;
+
+    private Fachada() {
+        this.usuarioControlador = new ArtistaControlador(new ArtistaCadastro());
+    }
+
+    public Fachada getInstace()
+    {
+        if(instance == null)
+        {
+            instance = new Fachada();
+        }
+
+        return instance;
+    }
+
+    public void cadastrar(Usuario usuario)
+    {
+        usuarioControlador.cadastrar(usuario);
+    }
+
+}
