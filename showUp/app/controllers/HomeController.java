@@ -43,8 +43,11 @@ public class HomeController extends Controller {
         String name;
         return redirect(routes.UserController.index());
     }
-    public Result register(){
-        return ok(views.html.cadastrar.render());
+    public Result registerContratante(){
+        return ok(views.html.cadastrarContratante.render());
+    }
+    public Result registerArtista(){
+        return ok(views.html.cadastrarArtista.render());
     }
 
 }
