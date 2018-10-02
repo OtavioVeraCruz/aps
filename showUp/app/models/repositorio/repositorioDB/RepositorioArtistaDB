@@ -1,22 +1,27 @@
-package models.repositorioBD;
+package models.repositorio.repositorioDB.;
 
-import java.util.*;
-import javax.persistence.Id;
+import io.ebean.Finder;
+import models.base.Artista;
+import models.repositorio.interfaces.IRepositorioArtista;
 
 
 public class RepositorioArtistaDB implements IRepositorioArtista {
 
-    private Finder<Long, Artista> artistaFinder;
+    private Finder<String, Artista> artistaFinder;
 
+    public RepositorioArtistaDB() {
+        this.artistaFinder = new Finder<String, Artista>(String.class, Artista.class);
+    }
+
+    @Override
     public void cadastrar(Artista artista)
     {
         artista.save();
     }
 
-    public boolean existeConta(String cpf)
+    @Override
+    public boolean existeArtista(String cpf)
     {
         return artistaFinder.byId(cpf) != null;
     }
-
-
 }

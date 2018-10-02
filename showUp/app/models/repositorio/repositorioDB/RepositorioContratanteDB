@@ -1,19 +1,44 @@
-package models.repositorioBD;
+package models.repositorio.repositorioDB;
 
-import java.util.*;
-import javax.persistence.Id;
+import io.ebean.Finder;
+import models.base.Contratante;
+import models.repositorio.interfaces.IRepositorioContratante;
 
 
-public class RepositorioContratanteDB implements IRepositorioArtista {
+public class RepositorioContratanteDB implements IRepositorioContratante {
 
-    private Finder<Long, Contratante> contratanteFinder;
 
+    private Finder<String, Contratante> contratanteFinder;
+
+    public RepositorioContratanteDB() {
+        this.contratanteFinder = new Finder<String, Contratante>(String.class, Contratante.class);
+    }
+
+    @Override
     public void cadastrar(Contratante contratante)
     {
         contratante.save();
     }
 
-    public boolean existeConta(String cpf)
+    @Override
+    public Contratante ler(String cpf) {
+        return contratanteFinder.byId(cpf);
+    }
+
+    @Override
+    public void update(Contratante contratante) {
+        Contratante aux = contratanteFinder.ref(contratante.getCpf());
+        aux.setNome(contratante.getNome());
+        aux.update();
+    }
+
+    @Override
+    public void deletar(String cpf) {
+        contratanteFinder.ref(cpf).delete();
+    }
+
+    @Override
+    public boolean existeContratante(String cpf)
     {
         return contratanteFinder.byId(cpf) != null;
     }

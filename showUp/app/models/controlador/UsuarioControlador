@@ -1,7 +1,0 @@
-package models.controlador;
-
-public interface UsuarioControlador
-{
-    public void cadastrar(Usuario usuario);
-    public boolean existeUsuario(String cpf);
-}

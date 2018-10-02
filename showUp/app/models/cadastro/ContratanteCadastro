@@ -1,20 +1,35 @@
 package models.cadastro;
 
+import models.base.Contratante;
+import models.repositorio.interfaces.IRepositorioContratante;
+
 public class ContratanteCadastro
 {
-    RepositorioContratanteDB repositorioContratanteDB;
+    IRepositorioContratante repositorioContratante;
 
-    public ContratanteCadastro(RepositorioContratanteDB repositorioContratanteDB) {
-        this.repositorioContratanteDB = repositorioContratanteDB;
+    public ContratanteCadastro(IRepositorioContratante repositorioContratanteDB) {
+        this.repositorioContratante = repositorioContratanteDB;
     }
 
     public void cadastrar(Contratante contratante)
     {
-        repositorioContratanteDB.cadastrar(contratante);
+        if (repositorioContratante.existeContratante(contratante.getCpf()))
+            repositorioContratante.cadastrar(contratante);
     }
 
-    public boolean existeConta(String cpf)
+    public Contratante ler(String cpf)
     {
-        return repositorioContratanteDB.existeContratante(cpf);
+        return repositorioContratante.ler(cpf);
     }
+
+    public void update(Contratante contratante)
+    {
+        repositorioContratante.update(contratante);
+    }
+
+    public void deletar(String cpf)
+    {
+        repositorioContratante.deletar(cpf);
+    }
+
 }

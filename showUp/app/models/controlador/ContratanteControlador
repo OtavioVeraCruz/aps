@@ -1,20 +1,33 @@
 package models.controlador;
 
-public class ContratanteControlador implements UsuarioControlador
+import models.base.Contratante;
+import models.base.Usuario;
+import models.cadastro.ContratanteCadastro;
+import models.repositorio.interfaces.IRepositorioContratante;
+
+public class ContratanteControlador
 {
     ContratanteCadastro contratanteCadastro;
 
-    public ArtistaControlador(ContratanteCadastro contratanteCadastro) {
-        this.contratanteCadastro = contratanteCadastro;
+    public ContratanteControlador(IRepositorioContratante repositorioContratante) {
+        this.contratanteCadastro = new ContratanteCadastro(repositorioContratante);
     }
 
-    public void cadastrar(Usuario usuario)
+    public void cadastrar(Usuario contratante)
     {
-        contratanteCadastro.cadastrar(Usuario);
+        contratanteCadastro.cadastrar((Contratante) contratante);
     }
 
-    public boolean existeUsuario(String cpf)
-    {
-        return contratanteCadastro.existeContratante(cpf);
+    public Usuario ler(String cpf) {
+        return contratanteCadastro.ler(cpf);
     }
+
+    public void update(Contratante contratante) {
+        contratanteCadastro.update(contratante);
+    }
+
+    public void deletar(String cpf) {
+        contratanteCadastro.deletar(cpf);
+    }
+
 }

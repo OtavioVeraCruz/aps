@@ -1,20 +1,20 @@
 package models.cadastro;
 
+import models.base.Artista;
+import models.repositorio.interfaces.IRepositorioArtista;
+
 public class ArtistaCadastro
 {
-    RepositorioArtistaDB repositorioArtistaDB;
+    IRepositorioArtista repositorioArtista;
 
-    public ArtistaCadastro(RepositorioArtistaDB repositorioArtistaDB) {
-        this.repositorioArtistaDB = repositorioArtistaDB;
+    public ArtistaCadastro(IRepositorioArtista repositorioArtista) {
+        this.repositorioArtista = repositorioArtista;
     }
 
     public void cadastrar(Artista artista)
     {
-        repositorioArtistaDB.cadastrar(artista);
+        if (repositorioArtista.existeArtista(artista.getCpf()))
+            repositorioArtista.cadastrar(artista);
     }
 
-    public boolean existeConta(String cpf)
-    {
-        return repositorioArtistaDB.existeArtista(cpf);
-    }
 }
