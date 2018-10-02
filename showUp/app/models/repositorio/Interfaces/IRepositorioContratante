@@ -1,0 +1,7 @@
+package models.repositorio.interfaces;
+
+public interface IRepositorioContratante {
+
+    public void cadastrar(Contratante contratante);
+    public boolean existeConta(String cpf);
+}
