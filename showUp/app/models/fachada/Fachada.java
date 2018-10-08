@@ -19,7 +19,7 @@ public class Fachada
         this.contratanteControlador = new ContratanteControlador(new RepositorioContratanteDB());
     }
 
-    public Fachada getInstace()
+    public static Fachada getInstance()
     {
         if(instance == null)
         {
@@ -28,6 +28,7 @@ public class Fachada
 
         return instance;
     }
+
 
     public void cadastrarArtista(Artista artista)
     {

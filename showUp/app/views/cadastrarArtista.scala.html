@@ -1,14 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>Cadastre-se</title>
-</head>
-<body>
-	<h1>Cadastrar</h1>
-	<div>
-		<form>
+@main("Cadastre-se"){
+
+	<h1 id="title-form">Formulário Artista</h1>
+	<div id="form-cadastrar">
+		<form action="@routes.ArtistaController.create">
 			<div class="form-group row">
     			<label for="inputNome" class="col-sm-2 col-form-label" >Nome</label>
     			<div class="col-sm-5">
@@ -105,8 +99,10 @@
               <input type="file" id="inputFoto">
           </div>
         </div>
-  			<button type="button" class="btn btn-primary" onClick="alert('Cadastrado')">Cadastrar</button>
+  			<input type="submit" value="Cadastrar"/>
+			<a href="@routes.HomeController.index">Voltar</a>
 		</form>
 	</div>
-</body>
-</html>
+
+}
+

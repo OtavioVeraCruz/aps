@@ -1,0 +1,16 @@
+#form-cadastrar{
+    width:500px;
+    margin-left:500px;
+    margin-bottom:50px;
+}
+#form-cadastrar input{
+    width:300px;
+
+}
+
+#title-form{
+    font-size:1.2em;
+    font-weight:bold;
+    margin-left:500px;
+    margin-bottom:50px;
+}

@@ -1,8 +1,9 @@
-package models;
+package models.base;
 
 import io.ebean.Model;
 
 import javax.persistence.*;
+
 
 @Entity
 public class User extends Model {

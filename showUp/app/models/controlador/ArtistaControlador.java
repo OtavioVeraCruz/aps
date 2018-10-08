@@ -1,14 +1,12 @@
 package models.controlador;
 
 import models.base.Artista;
-import models.base.Usuario;
 import models.cadastro.ArtistaCadastro;
 import models.repositorio.interfaces.IRepositorioArtista;
-import models.repositorio.repositorioDB.RepositorioArtistaDB;
 
 public class ArtistaControlador
 {
-    ArtistaCadastro artistaCadastro;
+    private ArtistaCadastro artistaCadastro;
 
     public ArtistaControlador(IRepositorioArtista repositorioArtista) {
         this.artistaCadastro = new ArtistaCadastro(repositorioArtista);

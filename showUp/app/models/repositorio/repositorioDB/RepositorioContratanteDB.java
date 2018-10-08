@@ -11,7 +11,7 @@ public class RepositorioContratanteDB implements IRepositorioContratante {
     private Finder<String, Contratante> contratanteFinder;
 
     public RepositorioContratanteDB() {
-        this.contratanteFinder = new Finder<String, Contratante>(String.class, Contratante.class);
+        this.contratanteFinder = new Finder<>(Contratante.class);
     }
 
     @Override

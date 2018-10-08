@@ -10,19 +10,18 @@
 
     <div id="content" class="wrapper doc">
 
-        <form action="@routes.HomeController.login">
+        <form action="@routes.LoginController.login">
 
             <label for="email">E-mail:</label>
             <input name="email" id="email">
             <label for="password">Senha:</label>
             <input name="password" id="password">
             <button type="submit">Login</button>
-            <a href="@routes.HomeController.registerContratante">Cadastre-se Contratante</a>
-            <a href="@routes.HomeController.registerArtista">Cadastre-se Artista</a>
-
         </form>
-
-
+        <br/>
+        <div><a href="@routes.HomeController.registerContratante">Cadastre-se Contratante</a>
+            <a href="@routes.HomeController.registerArtista">Cadastre-se Artista</a>
+        </div>
 
     </div>
 }

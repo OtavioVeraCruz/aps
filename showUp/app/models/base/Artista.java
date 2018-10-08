@@ -1,23 +1,23 @@
 package models.base;
 
-import io.ebean.Model;
+//import javax.persistence.Entity;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Date;
 
-import java.util.*;
-import javax.persistence.*;
-
-
+//@Entity
 public class Artista extends Usuario {
+
     private String generoMusical;
     private String[] instrumentos;
     private double precoShow;
     private String[] linkRedesSocial;
     private File photo;
 
-    public Artista() {
+    public Artista() { }
 
-    }
-
-    public Artista(String cpf, String nome, String senha, Endereco endereco, Evento[] eventos, Date date, String generoMusical, String[] instrumentos, double precoShow, String[] linkRedesSocial, File photo) {
+    public Artista(String cpf, String nome, String senha, Endereco endereco, ArrayList<Evento> eventos, Date date, String generoMusical,
+                   String[] instrumentos, double precoShow, String[] linkRedesSocial, File photo) {
         super(cpf, nome, senha, endereco, eventos, date);
         this.generoMusical = generoMusical;
         this.instrumentos = instrumentos;

@@ -5,7 +5,7 @@ import models.repositorio.interfaces.IRepositorioArtista;
 
 public class ArtistaCadastro
 {
-    IRepositorioArtista repositorioArtista;
+    private IRepositorioArtista repositorioArtista;
 
     public ArtistaCadastro(IRepositorioArtista repositorioArtista) {
         this.repositorioArtista = repositorioArtista;

@@ -1,4 +1,4 @@
-package models.repositorio.repositorioDB.;
+package models.repositorio.repositorioDB;
 
 import io.ebean.Finder;
 import models.base.Artista;
@@ -10,7 +10,7 @@ public class RepositorioArtistaDB implements IRepositorioArtista {
     private Finder<String, Artista> artistaFinder;
 
     public RepositorioArtistaDB() {
-        this.artistaFinder = new Finder<String, Artista>(String.class, Artista.class);
+        this.artistaFinder = new Finder<>(Artista.class);
     }
 
     @Override

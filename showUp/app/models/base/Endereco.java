@@ -1,21 +1,30 @@
 package models.base;
 
 import io.ebean.Model;
-import java.util.*;
-import javax.persistence.*;
+import javax.persistence.Entity;
 
 @Entity
 public class Endereco extends Model
 {
     private String cep;
     private String rua;
-    private String completo;
+    private String complemento;
     private int numero;
     private String cidade;
     private String estado;
     private String pais;
 
     public Endereco() {
+    }
+
+    public Endereco( String cep,String rua, String complemento,int numero,String cidade,String estado,String pais) {
+        this.cep=cep;
+        this.rua=rua;
+        this.complemento=complemento;
+        this.numero=numero;
+        this.cidade=cidade;
+        this.estado=estado;
+        this.pais=pais;
     }
 
     public String getCep() {
@@ -34,12 +43,12 @@ public class Endereco extends Model
         this.rua = rua;
     }
 
-    public String getCompleto() {
-        return completo;
+    public String getComplemento() {
+        return complemento;
     }
 
-    public void setCompleto(String completo) {
-        this.completo = completo;
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
     }
 
     public int getNumero() {
