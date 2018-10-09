@@ -1,5 +1,6 @@
 package models.fachada;
 
+import models.abstractfactory.FabricaRepositorioDB;
 import models.base.Artista;
 import models.base.Contratante;
 import models.base.Usuario;
@@ -12,11 +13,15 @@ public class Fachada
 {
     private ArtistaControlador artistaControlador;
     private ContratanteControlador contratanteControlador;
+
     private static Fachada instance;
 
     private Fachada() {
-        this.artistaControlador = new ArtistaControlador(new RepositorioArtistaDB());
-        this.contratanteControlador = new ContratanteControlador(new RepositorioContratanteDB());
+
+        FabricaRepositorioDB fabricaRepositorioDB=new FabricaRepositorioDB();
+        this.artistaControlador = new ArtistaControlador(fabricaRepositorioDB.criaRepositorioArtista());
+        this.contratanteControlador = new ContratanteControlador(fabricaRepositorioDB.criaRepositorioContratante());
+
     }
 
     public static Fachada getInstance()

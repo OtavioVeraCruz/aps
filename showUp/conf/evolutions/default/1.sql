@@ -31,14 +31,6 @@ create table user (
   constraint pk_user primary key (cpf)
 );
 
-create table usuario (
-  cpf                           varchar(255) not null,
-  nome                          varchar(255),
-  senha                         varchar(255),
-  date                          timestamp,
-  constraint pk_usuario primary key (cpf)
-);
-
 
 # --- !Downs
 
@@ -49,6 +41,4 @@ drop table if exists endereco;
 drop table if exists evento;
 
 drop table if exists user;
-
-drop table if exists usuario;
 
