@@ -5,11 +5,11 @@ import play.data.validation.Constraints;
 import java.util.*;
 import javax.persistence.*;
 
-//@Entity
+@Entity
 public abstract class Usuario extends Model{
 
-   // @Constraints.Required
-    //@Id
+    @Constraints.Required
+    @Id
     private String cpf;
     private String nome;
     private String senha;

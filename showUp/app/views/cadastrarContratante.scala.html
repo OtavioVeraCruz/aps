@@ -1,7 +1,10 @@
+@import helper._
+@(contratanteForm: Form[base.Contratante])
 @main("Cadastre-se"){
-	<h1>Formulário Contratante</h1>
+	<h1 id="register-title">Formulário Contratante</h1>
 	<div id="form-cadastrar">
-		<form>
+
+		 <!--@form(CSRF(routes.ContratanteController.create())) {
 			<div class="form-group row">
     			<label for="inputNome" class="col-sm-2 col-form-label" >Nome</label>
     			<div class="col-sm-3">
@@ -62,7 +65,17 @@
       				<input type="text" class="form-control" id="inputPassword" placeholder="País">
     			</div>
   			</div>
-  			<button type="button" class="btn btn-primary" onClick="alert('Cadastrado')">Cadastrar</button>
-		</form>
+  			<input type="submit" value="Cadastrar"/>
+        <a href="@routes.HomeController.index">Voltar</a>
+
+		 }-->
+
+ @helper.form(action = helper.CSRF(routes.ContratanteController.create())){
+            @helper.inputText(contratanteForm("cpf"))
+            @helper.inputText(contratanteForm("nome"))
+            @helper.inputText(contratanteForm("senha"))
+         
+        <input type="Submit" class="btn primary">
+    }
 	</div>
 }

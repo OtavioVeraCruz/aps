@@ -1,7 +1,6 @@
 package models.controlador;
 
 import models.base.Contratante;
-import models.base.Usuario;
 import models.cadastro.ContratanteCadastro;
 import models.repositorio.interfaces.IRepositorioContratante;
 
@@ -13,12 +12,12 @@ public class ContratanteControlador
         this.contratanteCadastro = new ContratanteCadastro(repositorioContratante);
     }
 
-    public void cadastrar(Usuario contratante)
+    public void cadastrar(Contratante contratante)
     {
         contratanteCadastro.cadastrar((Contratante) contratante);
     }
 
-    public Usuario ler(String cpf) {
+    public Contratante ler(String cpf) {
         return contratanteCadastro.ler(cpf);
     }
 

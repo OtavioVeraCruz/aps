@@ -2,7 +2,6 @@ package models.fachada;
 
 import models.base.Artista;
 import models.base.Contratante;
-import models.base.Usuario;
 import models.controlador.ArtistaControlador;
 import models.controlador.ContratanteControlador;
 import models.repositorio.repositorioDB.RepositorioArtistaDB;
@@ -40,7 +39,7 @@ public class Fachada
         contratanteControlador.cadastrar(contratante);
     }
 
-    public Usuario recuperarContratante(String cpf) {
+    public Contratante recuperarContratante(String cpf) {
         return contratanteControlador.ler(cpf);
     }
 

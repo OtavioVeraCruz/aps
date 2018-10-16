@@ -10,6 +10,13 @@ create table agenda (
   descricao                     varchar(255)
 );
 
+create table contratante (
+  cpf                           varchar(255) not null,
+  nome                          varchar(255),
+  senha                         varchar(255),
+  constraint pk_contratante primary key (cpf)
+);
+
 create table endereco (
   cep                           varchar(255),
   rua                           varchar(255),
@@ -25,12 +32,6 @@ create table evento (
   preco                         double not null
 );
 
-create table user (
-  cpf                           varchar(255) not null,
-  name                          varchar(255),
-  constraint pk_user primary key (cpf)
-);
-
 create table usuario (
   cpf                           varchar(255) not null,
   nome                          varchar(255),
@@ -44,11 +45,11 @@ create table usuario (
 
 drop table if exists agenda;
 
+drop table if exists contratante;
+
 drop table if exists endereco;
 
 drop table if exists evento;
-
-drop table if exists user;
 
 drop table if exists usuario;
 

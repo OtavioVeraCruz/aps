@@ -8,7 +8,9 @@ GET     /cadastrar/artista          controllers.HomeController.registerArtista
 GET     /cadastrar/contratante      controllers.HomeController.registerContratante
 
 POST     /login                     controllers.LoginController.login
-POST    /cadastrar/create                  controllers.ArtistaController.create
+POST    /cadastrar/create           controllers.ArtistaController.create
+
+POST    /cadastrar/create           controllers.ContratanteController.create
 
 
 # An example controller showing how to use dependency injection
