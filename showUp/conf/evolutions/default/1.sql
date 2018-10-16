@@ -32,12 +32,19 @@ create table evento (
   preco                         double not null
 );
 
+<<<<<<< HEAD
 create table usuario (
   cpf                           varchar(255) not null,
   nome                          varchar(255),
   senha                         varchar(255),
   date                          timestamp,
   constraint pk_usuario primary key (cpf)
+=======
+create table user (
+  cpf                           varchar(255) not null,
+  name                          varchar(255),
+  constraint pk_user primary key (cpf)
+>>>>>>> 6184e23eb27e53b9e3d2c22f2619d7a82f086a6d
 );
 
 
@@ -51,5 +58,9 @@ drop table if exists endereco;
 
 drop table if exists evento;
 
+<<<<<<< HEAD
 drop table if exists usuario;
+=======
+drop table if exists user;
+>>>>>>> 6184e23eb27e53b9e3d2c22f2619d7a82f086a6d
 

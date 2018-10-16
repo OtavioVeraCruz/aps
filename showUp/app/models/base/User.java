@@ -2,12 +2,12 @@ package models.base;
 
 import io.ebean.Model;
 
-//import javax.persistence.*;
+import javax.persistence.*;
 
 
-//@Entity
+@Entity
 public class User extends Model {
-   // @Id
+    @Id
     private String cpf;
     private String name;
 

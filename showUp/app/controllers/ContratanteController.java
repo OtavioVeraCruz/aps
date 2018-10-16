@@ -1,15 +1,18 @@
 package controllers;
 
-
 import play.mvc.*;
 import play.data.*;
 import javax.inject.*;
 import models.base.*;
 import models.fachada.Fachada;
-import play.mvc.*;
 import java.lang.*;
 import java.util.*;
 import views.html.*;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class ContratanteController extends Controller{
  
@@ -26,8 +29,6 @@ public class ContratanteController extends Controller{
 
      public Result create(){
        //DynamicForm data =form.form().bindFromRequest();
-        
-
         //String cep=	data.get("inputCep");
        // String rua=data.get("inputRua");
        // String complemento=data.get("inputComplemento");

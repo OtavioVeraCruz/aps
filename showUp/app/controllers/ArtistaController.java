@@ -22,26 +22,62 @@ public class ArtistaController extends Controller{
         this.form = formFactory;
     }
 
-    public Result create(){
-        DynamicForm data =form.form().bindFromRequest();
-        Fachada fachada=Fachada.getInstance();
+    public Result create() throws ParseException {
+        DynamicForm data = form.form().bindFromRequest();
+        Fachada fachada = Fachada.getInstance();
+        String cpf = data.get("inputCPF"), nome = data.get("inputNome");
+        String senha = data.get("inputSenha"), genero = data.get("inputGenero");
+        double preco=0;
+        if (data.get("inputPreco") != null) {
+            preco = Double.parseDouble(data.get("inputPreco"));
+        }
 
-        Endereco endereco=new Endereco(data.get("inputCep"),data.get("inputRua"),data.get("inputComplemento"),
-                Integer.parseInt(data.get("inputNumero")),data.get("inputCidade"),data.get("inputEstado"),data.get("inputPais"));
+        int numero = 0;
+        if (data.get("inputNumero") != null) {
+            numero = Integer.parseInt(data.get("inputNumero"));
+        }
+
+        Endereco endereco = new Endereco(data.get("inputCep"), data.get("inputRua"), data.get("inputComplemento"), numero
+                , data.get("inputCidade"), data.get("inputEstado"), data.get("inputPais"));
+
         SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy", Locale.ENGLISH);
-         
-       // Date date = formatter.parse(data.get("inputData"));
-Date date = new Date(data.get("inputData"));
-        Artista artista=new Artista(data.get("inputCPF"),data.get("inputNome"),data.get("inputSenha"),endereco,null,
-               date,data.get("inputGenero"),data.get("input").split(","),
-                Double.parseDouble(data.get("inputPreco")),data.get("inputLink").split(","),null);
+
+        Date date = null;
+        if (data.get("inputData")!=null){
+            date = formatter.parse(data.get("inputData"));
+        }
+
+        String[]instrumentos=null;
+
+        if (data.get("inputInstrumentos")!=null&&data.get("inputInstrumentos").contains(",")){
+
+            instrumentos=data.get("inputInstrumentos").split(",");
+        }
+        else if (data.get("inputInstrumentos")!=null){
+            instrumentos=new String[1];
+            instrumentos[0]=data.get("inputInstrumentos");
+        }
+
+        String [] redes=null;
+
+        if (data.get("inputLink")!=null&&data.get("inputLink").contains(",")){
+            redes=data.get("inputLink").split(",");
+        }
+        else if (data.get("inputLink")!=null){
+            redes=new String[1];
+            redes[0]=data.get("inputLink");
+        }
+
+        Artista artista=new Artista(cpf,nome,senha,endereco,null,date,genero,instrumentos,
+        preco,redes,null);
         fachada.cadastrarArtista(artista);
 
-
-        return redirect(routes.HomeController.index());
+        return  redirect(routes.ArtistaController.index());
     }
 
     public Result index(){
         return ok(views.html.index.render("Show Up!"));
     }
+
+
 }
