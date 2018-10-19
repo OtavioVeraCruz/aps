@@ -47,9 +47,9 @@ public class ContratanteController extends Controller{
 
      	Form<Contratante>formContratante=formFactory.form(Contratante.class);
      	Contratante contratante=formContratante.bindFromRequest().get();
-		this.fachada.cadastrarContratante(contratante);
+		  this.fachada.cadastrarContratante(contratante);
 
-        return redirect(routes.HomeController.index());
+      return redirect(routes.HomeController.index());
     }
 
     public Result index(){

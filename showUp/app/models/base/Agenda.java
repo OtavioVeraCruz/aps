@@ -7,10 +7,12 @@ import javax.persistence.*;
 
 @Entity
 public class Agenda extends Model {
+    
     private Date data;
     private String horaInicio;
     private String horaFim;
     private String descricao;
+    
 
     public Agenda() {
     }

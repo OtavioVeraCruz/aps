@@ -12,6 +12,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.ArrayList;
 
 public class ArtistaController extends Controller{
 
@@ -25,7 +26,11 @@ public class ArtistaController extends Controller{
     public Result create() throws ParseException {
         DynamicForm data = form.form().bindFromRequest();
         Fachada fachada = Fachada.getInstance();
-        String cpf = data.get("inputCPF"), nome = data.get("inputNome");
+        String cpf ="";
+        String nome = data.get("inputNome");
+        if (data.get("inputCPF")!=null) {
+            cpf=data.get("inputCPF");
+        }
         String senha = data.get("inputSenha"), genero = data.get("inputGenero");
         double preco=0;
         if (data.get("inputPreco") != null) {
@@ -47,25 +52,30 @@ public class ArtistaController extends Controller{
             date = formatter.parse(data.get("inputData"));
         }
 
-        String[]instrumentos=null;
+       ArrayList<String> instrumentos=new ArrayList<>();
 
         if (data.get("inputInstrumentos")!=null&&data.get("inputInstrumentos").contains(",")){
+            String aux[]=data.get("inputInstrumentos").split(",");
 
-            instrumentos=data.get("inputInstrumentos").split(",");
+             for (int i=0;i<aux.length;i++) {
+                    instrumentos.add(aux[i]);
+             }
         }
         else if (data.get("inputInstrumentos")!=null){
-            instrumentos=new String[1];
-            instrumentos[0]=data.get("inputInstrumentos");
+            instrumentos.add(data.get("inputInstrumentos"));
         }
 
-        String [] redes=null;
+        ArrayList<String> redes=new ArrayList<>();
 
         if (data.get("inputLink")!=null&&data.get("inputLink").contains(",")){
-            redes=data.get("inputLink").split(",");
+            String[] aux=data.get("inputLink").split(",");
+            for (int i=0;i<aux.length;i++) {
+                redes.add(aux[i]);
+            }
+            
         }
         else if (data.get("inputLink")!=null){
-            redes=new String[1];
-            redes[0]=data.get("inputLink");
+            redes.add(data.get("inputLink"));
         }
 
         Artista artista=new Artista(cpf,nome,senha,endereco,null,date,genero,instrumentos,

@@ -5,7 +5,7 @@ import io.ebean.Model;
 import javax.persistence.*;
 
 
-@Entity
+//@Entity
 public class User extends Model {
     @Id
     private String cpf;

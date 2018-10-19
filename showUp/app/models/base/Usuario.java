@@ -5,17 +5,17 @@ import play.data.validation.Constraints;
 import java.util.*;
 import javax.persistence.*;
 
-@Entity
-public abstract class Usuario extends Model{
+@MappedSuperclass
+public class Usuario extends Model{
 
     @Constraints.Required
     @Id
-    private String cpf;
-    private String nome;
-    private String senha;
-    private Endereco endereco;
-    private ArrayList<Evento> eventos;
-    private Date date;
+    String cpf;
+    String nome;
+    String senha;
+    Endereco endereco;
+    ArrayList<Evento> eventos;
+    Date date;
 
     public Usuario(){}
 

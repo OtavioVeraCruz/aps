@@ -1,7 +1,7 @@
 package models.base;
 
 import io.ebean.Model;
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 @Entity
 public class Endereco extends Model
@@ -82,4 +82,6 @@ public class Endereco extends Model
     public void setPais(String pais) {
         this.pais = pais;
     }
+
+    
 }
