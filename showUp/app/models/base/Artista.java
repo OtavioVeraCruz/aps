@@ -1,23 +1,24 @@
 package models.base;
 
-import io.ebean.Model;
+import javax.persistence.Entity;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Date;
 
-import java.util.*;
-import javax.persistence.*;
-
-
+@Entity
 public class Artista extends Usuario {
+
     private String generoMusical;
-    private String[] instrumentos;
+    private ArrayList<String> instrumentos;
     private double precoShow;
-    private String[] linkRedesSocial;
+    private ArrayList<String> linkRedesSocial;
     private File photo;
+    
+    
+    public Artista() { }
 
-    public Artista() {
-
-    }
-
-    public Artista(String cpf, String nome, String senha, Endereco endereco, Evento[] eventos, Date date, String generoMusical, String[] instrumentos, double precoShow, String[] linkRedesSocial, File photo) {
+    public Artista(String cpf, String nome, String senha, Endereco endereco, ArrayList<Evento> eventos, Date date, String generoMusical,
+                   ArrayList<String> instrumentos, double precoShow, ArrayList<String> linkRedesSocial, File photo) {
         super(cpf, nome, senha, endereco, eventos, date);
         this.generoMusical = generoMusical;
         this.instrumentos = instrumentos;
@@ -34,11 +35,11 @@ public class Artista extends Usuario {
         this.generoMusical = generoMusical;
     }
 
-    public String[] getInstrumentos() {
+    public ArrayList<String> getInstrumentos() {
         return instrumentos;
     }
 
-    public void setInstrumentos(String[] instrumentos) {
+    public void setInstrumentos(ArrayList<String> instrumentos) {
         this.instrumentos = instrumentos;
     }
 
@@ -50,11 +51,11 @@ public class Artista extends Usuario {
         this.precoShow = precoShow;
     }
 
-    public String[] getLinkRedesSocial() {
+    public ArrayList<String> getLinkRedesSocial() {
         return linkRedesSocial;
     }
 
-    public void setLinkRedesSocial(String[] linkRedesSocial) {
+    public void setLinkRedesSocial(ArrayList<String>linkRedesSocial) {
         this.linkRedesSocial = linkRedesSocial;
     }
 

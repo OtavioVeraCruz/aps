@@ -1,8 +1,8 @@
 package models.fachada;
 
+import models.abstractfactory.FabricaRepositorioDB;
 import models.base.Artista;
 import models.base.Contratante;
-import models.base.Usuario;
 import models.controlador.ArtistaControlador;
 import models.controlador.ContratanteControlador;
 import models.repositorio.repositorioDB.RepositorioArtistaDB;
@@ -12,14 +12,18 @@ public class Fachada
 {
     private ArtistaControlador artistaControlador;
     private ContratanteControlador contratanteControlador;
+
     private static Fachada instance;
 
     private Fachada() {
-        this.artistaControlador = new ArtistaControlador(new RepositorioArtistaDB());
-        this.contratanteControlador = new ContratanteControlador(new RepositorioContratanteDB());
+
+        FabricaRepositorioDB fabricaRepositorioDB=new FabricaRepositorioDB();
+        this.artistaControlador = new ArtistaControlador(fabricaRepositorioDB.criaRepositorioArtista());
+        this.contratanteControlador = new ContratanteControlador(fabricaRepositorioDB.criaRepositorioContratante());
+
     }
 
-    public Fachada getInstace()
+    public static Fachada getInstance()
     {
         if(instance == null)
         {
@@ -28,6 +32,7 @@ public class Fachada
 
         return instance;
     }
+
 
     public void cadastrarArtista(Artista artista)
     {
@@ -39,7 +44,7 @@ public class Fachada
         contratanteControlador.cadastrar(contratante);
     }
 
-    public Usuario recuperarContratante(String cpf) {
+    public Contratante recuperarContratante(String cpf) {
         return contratanteControlador.ler(cpf);
     }
 

@@ -7,19 +7,21 @@ import javax.persistence.*;
 
 @Entity
 public class Agenda extends Model {
-    private Data data;
+    
+    private Date data;
     private String horaInicio;
     private String horaFim;
     private String descricao;
+    
 
     public Agenda() {
     }
 
-    public Data getData() {
+    public Date getData() {
         return data;
     }
 
-    public void setData(Data data) {
+    public void setData(Date data) {
         this.data = data;
     }
 

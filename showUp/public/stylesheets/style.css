@@ -1,0 +1,34 @@
+#form-cadastrar{
+    width:500px;
+    margin-left:500px;
+    margin-bottom:50px;
+}
+#form-cadastrar input{
+    width:300px;
+    margin: 10px;	
+}
+
+#title-form{
+    font-size:1.2em;
+    font-weight:bold;
+    margin-left:500px;
+    margin-bottom:50px;
+}
+
+#div-links{
+	margin: 20%;
+}
+#div-links a{
+	padding: 20px;
+	background-color:#80c846;
+	color: #ffffff;
+	margin: 10px;		
+}
+#register-title{
+    width: 300px;
+    padding: 20px;
+    background-color:#80c846;
+    color: #ffffff;
+    margin-left: 500px
+
+}

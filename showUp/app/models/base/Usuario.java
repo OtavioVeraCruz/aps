@@ -1,21 +1,25 @@
 package models.base;
 
 import io.ebean.Model;
+import play.data.validation.Constraints;
 import java.util.*;
 import javax.persistence.*;
 
-@Entity
-public abstract class Usuario extends Model
-{
-    @Id
-    private String cpf;
-    private String nome;
-    private String senha;
-    private Endereco endereco
-    private Evento[] eventos;
-    private Date date;
+@MappedSuperclass
+public class Usuario extends Model{
 
-    public Usuario(String cpf, String nome, String senha, Endereco endereco, Evento[] eventos, Date date) {
+    @Constraints.Required
+    @Id
+    String cpf;
+    String nome;
+    String senha;
+    Endereco endereco;
+    ArrayList<Evento> eventos;
+    Date date;
+
+    public Usuario(){}
+
+    public Usuario(String cpf, String nome, String senha, Endereco endereco, ArrayList<Evento> eventos, Date date) {
         this.cpf = cpf;
         this.nome = nome;
         this.senha = senha;
@@ -56,11 +60,11 @@ public abstract class Usuario extends Model
         this.endereco = endereco;
     }
 
-    public Evento[] getEventos() {
+    public ArrayList<Evento> getEventos() {
         return eventos;
     }
 
-    public void setEventos(Evento[] eventos) {
+    public void setEventos(ArrayList<Evento> eventos) {
         this.eventos = eventos;
     }
 

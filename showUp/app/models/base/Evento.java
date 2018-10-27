@@ -1,20 +1,26 @@
 package models.base;
 
 import io.ebean.Model;
-import java.util.*;
-import javax.persistence.*;
+import javax.persistence.Entity;
+import java.util.ArrayList;
 
 @Entity
 public class Evento extends Model {
     private String nome;
     private Endereco endereco;
     private double preco;
-    private String[] instrumentos;
+    private ArrayList<String> instrumentos;
     private Agenda agenda;
 
     public Evento() {
     }
-
+    public Evento(String nome,Endereco endereco,double preco,ArrayList<String> instrumentos,Agenda agenda) {
+        this.nome=nome;
+        this.endereco=endereco;
+        this.preco=preco;
+        this.instrumentos=instrumentos;
+        this.agenda=agenda;
+    }
     public String getNome() {
         return nome;
     }
@@ -39,11 +45,11 @@ public class Evento extends Model {
         this.preco = preco;
     }
 
-    public String[] getInstrumentos() {
+    public ArrayList<String> getInstrumentos() {
         return instrumentos;
     }
 
-    public void setInstrumentos(String[] instrumentos) {
+    public void setInstrumentos(ArrayList<String> instrumentos) {
         this.instrumentos = instrumentos;
     }
 

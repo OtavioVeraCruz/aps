@@ -5,7 +5,7 @@ import models.repositorio.interfaces.IRepositorioContratante;
 
 public class ContratanteCadastro
 {
-    IRepositorioContratante repositorioContratante;
+    private IRepositorioContratante repositorioContratante;
 
     public ContratanteCadastro(IRepositorioContratante repositorioContratanteDB) {
         this.repositorioContratante = repositorioContratanteDB;
