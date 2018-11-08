@@ -1,6 +1,6 @@
 @(message: String, style: String = "java")
 
-@defining(play.core.PlayVersion.current) { version =>
+@main(message) { 
 
     <section id="top" >
         <div class="wrapper">
@@ -9,20 +9,21 @@
     </section>
 
     <div id="content" class="wrapper doc">
-
-        <!--<form action="@routes.LoginController.login">
-
-            <label for="email">E-mail:</label>
-            <input name="email" id="email">
-            <label for="password">Senha:</label>
-            <input name="password" id="password">
-            <button type="submit">Login</button>
-        </form>
-        <br/>-->
         
-        <div id="div-links">
-            <a href="@routes.HomeController.registerContratante">Cadastre-se Contratante</a>
-            <a href="@routes.HomeController.registerArtista">Cadastre-se Artista</a>
+        <div class="row" id="div-links">
+            <div class="col-md-12">
+              <a class=" btn btn-success" href="#">Login with facebook</a>
+            </div>
+            <div class="col-md-12">
+             <a class=" btn btn-success" href="#">Login</a>
+            </div>
+            <div class="col-md-12">
+                <a class=" btn btn-success" href="@routes.HomeController.registerContratante">Cadastre-se Contratante</a>
+            </div>
+            
+            <div class="col-md-12">
+                <a class=" btn btn-success" href="@routes.HomeController.registerArtista">Cadastre-se Artista</a>
+            </div>
         </div>
 
     </div>

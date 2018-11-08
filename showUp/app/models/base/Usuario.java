@@ -11,6 +11,7 @@ public class Usuario extends Model{
     @Constraints.Required
     @Id
     String cpf;
+    @Constraints.Required
     String nome;
     String senha;
     Endereco endereco;

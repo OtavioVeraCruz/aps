@@ -4,10 +4,12 @@
 # --- !Ups
 
 create table agenda (
+  id                            integer auto_increment not null,
   data                          timestamp,
   hora_inicio                   varchar(255),
   hora_fim                      varchar(255),
-  descricao                     varchar(255)
+  descricao                     varchar(255),
+  constraint pk_agenda primary key (id)
 );
 
 create table artista (
@@ -30,18 +32,22 @@ create table contratante (
 );
 
 create table endereco (
+  id                            integer auto_increment not null,
   cep                           varchar(255),
   rua                           varchar(255),
   complemento                   varchar(255),
   numero                        integer not null,
   cidade                        varchar(255),
   estado                        varchar(255),
-  pais                          varchar(255)
+  pais                          varchar(255),
+  constraint pk_endereco primary key (id)
 );
 
 create table evento (
+  id                            integer auto_increment not null,
   nome                          varchar(255),
-  preco                         double not null
+  preco                         double not null,
+  constraint pk_evento primary key (id)
 );
 
 

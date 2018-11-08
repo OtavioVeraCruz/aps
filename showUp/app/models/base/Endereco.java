@@ -6,6 +6,8 @@ import javax.persistence.*;
 @Entity
 public class Endereco extends Model
 {
+    @Id
+    private int id;
     private String cep;
     private String rua;
     private String complemento;

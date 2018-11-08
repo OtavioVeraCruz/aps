@@ -8,6 +8,8 @@ import javax.persistence.*;
 @Entity
 public class Agenda extends Model {
     
+    @Id
+    private int Id;
     private Date data;
     private String horaInicio;
     private String horaFim;

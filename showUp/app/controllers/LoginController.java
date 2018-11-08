@@ -21,9 +21,9 @@ public class LoginController extends Controller {
         this.form=formFactory.form(Usuario.class);
     }*/
 
-    public Result login(){
+    /*public Result login(){
         return ok(views.html.home.render());
-    }
+    }*/
 
    /* public Result cadastrarArtista(){
         return ok(views.html.cadastrarArtista.render());

@@ -88,6 +88,4 @@ public class ArtistaController extends Controller{
     public Result index(){
         return ok(views.html.index.render("Show Up!"));
     }
-
-
 }

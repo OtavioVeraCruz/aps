@@ -17,10 +17,9 @@ libraryDependencies += "org.awaitility" % "awaitility" % "2.0.0" % Test
 
 // Make verbose tests
 testOptions in Test := Seq(Tests.Argument(TestFrameworks.JUnit, "-a", "-v"))
-
-// Ebean ORM
-//lazy val myProject = (project in file("."))
-//  .enablePlugins(PlayJava, PlayEbean)
-
+libraryDependencies ++= Seq(evolutions, jdbc)
+libraryDependencies += jdbc
 libraryDependencies += "com.h2database" % "h2" % "1.4.192"
 libraryDependencies += "io.ebean" % "ebean" % "11.22.6"
+libraryDependencies += "mysql" % "mysql-connector-java" % "5.1.41"
+libraryDependencies += "postgresql" % "postgresql" % "9.1-901.jdbc4"
