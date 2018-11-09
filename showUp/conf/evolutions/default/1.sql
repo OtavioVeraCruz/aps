@@ -9,12 +9,14 @@ create table agenda (
   hora_inicio                   varchar(255),
   hora_fim                      varchar(255),
   descricao                     varchar(255),
+  evento_id                     integer not null,
   constraint pk_agenda primary key (id)
 );
 
 create table artista (
   cpf                           varchar(255) not null,
   nome                          varchar(255),
+  email                         varchar(255),
   senha                         varchar(255),
   date                          timestamp,
   genero_musical                varchar(255),
@@ -26,6 +28,7 @@ create table artista (
 create table contratante (
   cpf                           varchar(255) not null,
   nome                          varchar(255),
+  email                         varchar(255),
   senha                         varchar(255),
   date                          timestamp,
   constraint pk_contratante primary key (cpf)
@@ -44,10 +47,10 @@ create table endereco (
 );
 
 create table evento (
-  id                            integer auto_increment not null,
+  evento_id                     integer auto_increment not null,
   nome                          varchar(255),
   preco                         double not null,
-  constraint pk_evento primary key (id)
+  constraint pk_evento primary key (evento_id)
 );
 
 

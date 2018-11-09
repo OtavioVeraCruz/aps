@@ -9,12 +9,14 @@ import javax.persistence.*;
 public class Agenda extends Model {
     
     @Id
-    private int Id;
+    private int id;
     private Date data;
     private String horaInicio;
     private String horaFim;
     private String descricao;
-    
+    private int evento_id;
+   // @OneToOne(mappedBy="evento_id")
+    private Evento evento;
 
     public Agenda() {
     }

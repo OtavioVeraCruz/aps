@@ -9,11 +9,6 @@ import java.lang.*;
 import java.util.*;
 import views.html.*;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
-
 public class ContratanteController extends Controller{
  
  	private FormFactory formFactory;
@@ -27,14 +22,16 @@ public class ContratanteController extends Controller{
         this.fachada=Fachada.getInstance();	
     }
 
-     public Result create(){
-
+    public Result create(){
      	Form<Contratante>formContratante=formFactory.form(Contratante.class);
      	Contratante contratante=formContratante.bindFromRequest().get();
-		this.fachada.cadastrarContratante(contratante);
-        return redirect(controllers.routes.ContratanteController.login(contratante.getNome()));
+        this.fachada.cadastrarContratante(contratante);
+        List<Usuario> usuarios=new ArrayList<>();
+        usuarios.add(new Artista("12345677774","Banda Cin","bandacin@email.com","52312315",null,null,null,"Rock",null,300,null,null));
+        usuarios.add(new Artista("12345677775","Chico Science","chico@email.com","52312315",null,null,null,"Pop",null,400,null,null));
+        return ok(views.html.home.render(contratante,usuarios));
     }
-    public Result login(String nome){
-        return ok(views.html.home.render(nome));
-    }
+    /*public Result login(Usuario usuario,List<Usuario>usuarios){
+        return ok(views.html.home.render(usuario,usuarios));
+    }*/
 }

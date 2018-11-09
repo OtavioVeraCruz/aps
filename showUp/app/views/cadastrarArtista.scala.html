@@ -1,109 +1,39 @@
 @import helper._
+
+@(formArtista: Form[base.Artista])
+
 @main("Cadastre-se"){
 
-	<h1 id="title-form">Formulário Artista</h1>
+	<h3 id="register-title">Formulário Artista</h3>
+	<div id="form-cadastrar">
+		@helper.form(action = helper.CSRF(routes.ArtistaController.create())){
+					@helper.inputText(formArtista("cpf"),'_label -> ("CPF:"))
+                    @helper.inputText(formArtista("nome"),'_label -> ("Nome:"))
+                    @helper.inputText(formArtista("email"),'_label -> ("E-mail:"))
+					@helper.inputPassword(formArtista("senha"),'_label -> ("Senha:"))
+					@helper.inputDate(formArtista("date"),'_label -> ("Data de Nascimento:"))
+					@helper.inputFile(formArtista("foto"),'_label -> ("Imagem do perfil:"))
+					<h3>Endereço:</h3>	
+					@helper.inputText(formArtista("cep"),'_label -> ("CEP:"))
+					@helper.inputText(formArtista("rua"),'_label -> ("Rua:"))
+					@helper.inputText(formArtista("complemento"),'_label -> ("Complemento:"))
+					@helper.inputText(formArtista("cidade"),'_label -> ("Cidade:"))
+					@helper.inputText(formArtista("estado"),'_label -> ("Estado:"))
+					@helper.inputText(formArtista("pais"),'_label -> ("País:"))
+					
+					<div class="row">
+						<div class="col-md-4"><a href="/" class="btn btn-primary">Voltar</a></div>	
+						<div class="col-md-4"><button type="Submit"  class="btn btn-success">Cadastrar</button></div>	
+					</div>
 
-    @form(CSRF(routes.ArtistaController.create())) {
-      <div class="form-group row">
-          <label for="inputNome" class="col-sm-2 col-form-label" >Nome</label>
-          <div class="col-sm-5">
-              <input type="text" class="form-control" id="inputNome" placeholder="Nome">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="inptCPF" class="col-sm-2 col-form-label">CPF</label>
-          <div class="col-sm-5">
-              <input type="text" class="form-control" id="inptCPF" placeholder="CPF">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="inputSenha" class="col-sm-2 col-form-label">Senha</label>
-          <div class="col-sm-5">
-              <input type="password" class="form-control" id="inputSenha" placeholder="Senha">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="inputData" class="col-sm-2 col-form-label">Data de nascimento</label>
-          <div class="col-sm-5">
-              <input type="date" class="form-control" id="inputData" placeholder="Data de nascimento">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="inputCep" class="col-sm-2 col-form-label">CEP</label>
-          <div class="col-sm-5">
-              <input type="number" class="form-control" id="inputCep" placeholder="CEP">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="inputRua" class="col-sm-2 col-form-label">Rua</label>
-          <div class="col-sm-5">
-              <input type="text" class="form-control" id="inputRua" placeholder="Rua">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="inputNumero" class="col-sm-2 col-form-label">Número</label>
-          <div class="col-sm-5">
-              <input type="number" class="form-control" id="inputNumero" placeholder="Número">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="inputComplemento" class="col-sm-2 col-form-label">Complemento</label>
-          <div class="col-sm-5">
-              <input type="text" class="form-control" id="inputComplemento" placeholder="Complemento">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="inputCidade" class="col-sm-2 col-form-label">Cidade</label>
-          <div class="col-sm-5">
-              <input type="text" class="form-control" id="inputCidade" placeholder="Cidade">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="inputEstado" class="col-sm-2 col-form-label">Estado</label>
-          <div class="col-sm-5">
-              <input type="text" class="form-control" id="inputEstado" placeholder="Estado">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="inputPais" class="col-sm-2 col-form-label">País</label>
-          <div class="col-sm-5">
-              <input type="text" class="form-control" id="inputPais" placeholder="País">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="inputGenero" class="col-sm-2 col-form-label">Gênero Musical</label>
-          <div class="col-sm-5">
-              <input type="text" class="form-control" id="inputGenero" placeholder="Gênero Musical">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="inputInstrumentos" class="col-sm-2 col-form-label">Instrumentos</label>
-          <div class="col-sm-5">
-              <input type="text" class="form-control" id="inputInstrumentos" placeholder="Instrumentos">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="inputPreco" class="col-sm-2 col-form-label">Preço do Show</label>
-          <div class="col-sm-5">
-              <input type="text" class="form-control" id="inputPreco" placeholder="Preço do Show">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="inputLink" class="col-sm-2 col-form-label">Link para rede social</label>
-          <div class="col-sm-5">
-              <input type="text" class="form-control" id="inputLink" placeholder="Link">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="inputFoto" class="col-sm-2 col-form-label">Foto</label>
-          <div class="col-sm-5">
-              <input type="file" id="inputFoto">
-          </div>
-        </div>
-        <input type="submit" value="Cadastrar"/>
-      <a href="@routes.HomeController.index">Voltar</a>
-
-    
-	}
+					@if(formArtista.hasGlobalErrors) {
+						<p class="error">
+							@for(error <- formArtista.globalErrors) {
+								<p>@error.format(messages())</p>
+							}
+						</p>
+					}
+		}
+	</div>
 
 }

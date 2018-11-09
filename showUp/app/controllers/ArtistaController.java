@@ -1,31 +1,27 @@
 package controllers;
 
-import com.google.inject.Inject;
-import models.base.Artista;
-import models.base.Endereco;
+import play.mvc.*;
+import play.data.*;
+import javax.inject.*;
+import models.base.*;
 import models.fachada.Fachada;
-import play.data.DynamicForm;
-import play.data.FormFactory;
-import play.mvc.Controller;
-import play.mvc.Result;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
-import java.util.ArrayList;
+import java.lang.*;
+import java.util.*;
+import views.html.*;
 
 public class ArtistaController extends Controller{
 
     private FormFactory form;
-
+    private Fachada fachada;
     @Inject
     public ArtistaController(FormFactory formFactory) {
         this.form = formFactory;
+        this.fachada = Fachada.getInstance();
     }
 
-    public Result create() throws ParseException {
+    /*public Result create() throws ParseException {
         DynamicForm data = form.form().bindFromRequest();
-        Fachada fachada = Fachada.getInstance();
+        
         String cpf ="";
         String nome = data.get("inputNome");
         if (data.get("inputCPF")!=null) {
@@ -80,12 +76,26 @@ public class ArtistaController extends Controller{
 
         Artista artista=new Artista(cpf,nome,senha,endereco,null,date,genero,instrumentos,
         preco,redes,null);
-        fachada.cadastrarArtista(artista);
+        this.fachada.cadastrarArtista(artista);
 
         return  redirect(routes.ArtistaController.index());
     }
 
     public Result index(){
         return ok(views.html.index.render("Show Up!"));
-    }
+        
+    }*/
+
+    public Result create(){
+        Form<Artista>formArtista=form.form(Artista.class);
+        if (formArtista.hasErrors()) {
+            return badRequest(views.html.cadastrarArtista.render(formArtista));
+        } else {
+            Artista artista=formArtista.bindFromRequest().get();
+            this.fachada.cadastrarArtista(artista);
+            List<Usuario> usuarios=new ArrayList<>();
+            return ok(views.html.home.render(artista,null));
+        } 
+   }
+  
 }

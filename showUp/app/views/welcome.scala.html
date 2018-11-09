@@ -2,29 +2,26 @@
 
 @main(message) { 
 
-    <section id="top" >
-        <div class="wrapper">
-            <h1>ShowUp!</h1>
-        </div>
-    </section>
-
-    <div id="content" class="wrapper doc">
+        <nav class="navbar navbar-light bg-light">
+            <span id="brand-title" class="navbar-brand mb-0 h1">ShowUp!</span>
+        </nav>
+    
         
         <div class="row" id="div-links">
             <div class="col-md-12">
-              <a class=" btn btn-success" href="#">Login with facebook</a>
+              <a class=" btn btn-primary" href="#">Login with facebook</a>
             </div>
-            <div class="col-md-12">
+            <div class="col-md-12" id="btn-login">
              <a class=" btn btn-success" href="#">Login</a>
             </div>
             <div class="col-md-12">
-                <a class=" btn btn-success" href="@routes.HomeController.registerContratante">Cadastre-se Contratante</a>
+                <a class=" btn btn-secondary" href="@routes.HomeController.registerContratante">Cadastre-se Contratante</a>
             </div>
             
             <div class="col-md-12">
-                <a class=" btn btn-success" href="@routes.HomeController.registerArtista">Cadastre-se Artista</a>
+                <a class=" btn btn-info" href="@routes.HomeController.registerArtista">Cadastre-se Artista</a>
             </div>
         </div>
 
-    </div>
+    
 }

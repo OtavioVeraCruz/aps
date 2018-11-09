@@ -1,20 +1,22 @@
 package models.base;
 
 import io.ebean.Model;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+//import javax.persistence.Id;
+
 
 import java.util.ArrayList;
 
 @Entity
 public class Evento extends Model {
     @Id
-    private int id;
+    private int evento_id;
     private String nome;
     private Endereco endereco;
     private double preco;
     private ArrayList<String> instrumentos;
     private Agenda agenda;
+    
 
     public Evento() {
     }

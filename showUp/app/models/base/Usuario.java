@@ -13,6 +13,8 @@ public class Usuario extends Model{
     String cpf;
     @Constraints.Required
     String nome;
+    @Constraints.Required
+    String email;
     String senha;
     Endereco endereco;
     ArrayList<Evento> eventos;
@@ -20,15 +22,17 @@ public class Usuario extends Model{
 
     public Usuario(){}
 
-    public Usuario(String cpf, String nome, String senha, Endereco endereco, ArrayList<Evento> eventos, Date date) {
+    public Usuario(String cpf, String nome, String email, String senha, Endereco endereco, ArrayList<Evento> eventos, Date date) {
         this.cpf = cpf;
         this.nome = nome;
         this.senha = senha;
         this.endereco = endereco;
         this.eventos = eventos;
         this.date = date;
+        this.email=email;
     }
 
+    
     public String getNome() {
         return nome;
     }
@@ -43,6 +47,13 @@ public class Usuario extends Model{
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
+    }
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getSenha() {

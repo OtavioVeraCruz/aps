@@ -9,16 +9,12 @@ GET     /cadastrar/contratante      controllers.HomeController.registerContratan
 
 POST    /cadastrar/create           controllers.ArtistaController.create()
 
-GET     /index                      controllers.ArtistaController.index()
+#GET    /index                      controllers.ArtistaController.index()
 
+#Contratante routes
 POST    /cadastrar/contratante      controllers.ContratanteController.create()
-GET     /home/:nome                 controllers.ContratanteController.login(nome:String)
+#GET    /home                      controllers.ContratanteController.login
 
-# An example controller showing how to use dependency injection
-GET     /count                      controllers.CountController.count
-# An example controller showing how to write asynchronous code
-GET     /message                    controllers.AsyncController.message
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
-

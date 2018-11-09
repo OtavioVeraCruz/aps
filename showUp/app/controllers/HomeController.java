@@ -13,26 +13,25 @@ import views.html.*;
 public class HomeController extends Controller {
 
 	private FormFactory formFactory;
- 	private Contratante contratante;
  	private Fachada fachada;
 
  	 @Inject
     public HomeController(FormFactory formFactory) {
         this.formFactory = formFactory;
-        this.contratante=new Contratante();
         this.fachada=Fachada.getInstance();	
     }
 
     public Result index() {
-        return ok(index.render("Your new application!"));
+        return ok(index.render("ShowUp!"));
     }
 
     public Result registerContratante(){
     	Form<Contratante>formContratante=formFactory.form(Contratante.class);
-
         return ok(views.html.cadastrarContratante.render(formContratante));
     }
-    public Result registerArtista(){return ok(views.html.cadastrarArtista.render());
+    public Result registerArtista(){
+        Form<Artista>formArtista=formFactory.form(Artista.class);
+        return ok(views.html.cadastrarArtista.render(formArtista));
     }
 
 }
