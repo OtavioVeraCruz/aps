@@ -13,6 +13,8 @@ public class ArtistaController extends Controller{
 
     private FormFactory form;
     private Fachada fachada;
+    private static Artista artista;
+    private static ArrayList<Evento> eventos;
     @Inject
     public ArtistaController(FormFactory formFactory) {
         this.form = formFactory;
@@ -93,9 +95,26 @@ public class ArtistaController extends Controller{
         } else {
             Artista artista=formArtista.bindFromRequest().get();
             this.fachada.cadastrarArtista(artista);
-            List<Usuario> usuarios=new ArrayList<>();
-            return ok(views.html.home.render(artista,null));
+            this.artista=artista;
+            ArrayList<Evento> eventos=null;  
+            this.eventos=eventos;  
+            return ok(views.html.homeArtista.render(artista,null));
         } 
+   }
+   public Result verEvento(int id){
+       Evento evento=null;
+       if(this.eventos!=null){
+        for(Evento aux : eventos)   {
+           if(aux.getId()==id){
+               evento=aux; 
+           }
+        }
+        return ok(views.html.verEvento.render(evento));
+       }
+       else{
+        return ok(views.html.verEvento.render(null));
+       }
+      
    }
   
 }

@@ -1,4 +1,5 @@
 package models.repositorio.repositorioDB;
+import java.util.List;
 
 import io.ebean.Finder;
 import models.base.Contratante;
@@ -41,5 +42,9 @@ public class RepositorioContratanteDB implements IRepositorioContratante {
     public boolean existeContratante(String cpf)
     {
         return contratanteFinder.byId(cpf) != null;
+    }
+    @Override
+    public List<Contratante> all(){
+        return contratanteFinder.all();
     }
 }

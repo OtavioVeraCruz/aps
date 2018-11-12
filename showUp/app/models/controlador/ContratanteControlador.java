@@ -1,5 +1,7 @@
 package models.controlador;
 
+import java.util.List;
+
 import models.base.Contratante;
 import models.cadastro.ContratanteCadastro;
 import models.repositorio.interfaces.IRepositorioContratante;
@@ -27,6 +29,9 @@ public class ContratanteControlador
 
     public void deletar(String cpf) {
         contratanteCadastro.deletar(cpf);
+    }
+    public List<Contratante> all(){
+        return contratanteCadastro.all();
     }
 
 }

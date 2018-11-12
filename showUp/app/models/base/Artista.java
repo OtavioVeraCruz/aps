@@ -1,10 +1,10 @@
 package models.base;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Date;
+import java.util.*;
 import io.ebean.*;
+
 @Entity
 public class Artista extends Usuario {
 
@@ -13,17 +13,21 @@ public class Artista extends Usuario {
     private double precoShow;
     private ArrayList<String> linkRedesSocial;
     private File photo;
-    
+    @ManyToMany
+    private List<Evento>eventos;
+    @OneToOne
+    private Endereco endereco;
+
     public Artista() { }
 
-    public Artista(String cpf, String nome,String email, String senha, Endereco endereco, ArrayList<Evento> eventos, Date date, String generoMusical,
+    public Artista(String cpf, String nome,String email, String senha, Endereco endereco/*, ArrayList<Evento> eventos*/, Date date, String generoMusical,
                    ArrayList<String> instrumentos, double precoShow, ArrayList<String> linkRedesSocial, File photo) {
-        super(cpf, nome,email, senha, endereco, eventos, date);
+        super(cpf, nome,email, senha/*, endereco, eventos*/, date);
         this.generoMusical = generoMusical;
         this.instrumentos = instrumentos;
         this.precoShow = precoShow;
         this.linkRedesSocial = linkRedesSocial;
-        this.photo = photo;
+        this.photo = photo;                 
     }
 
     public String getGeneroMusical() {
@@ -65,4 +69,5 @@ public class Artista extends Usuario {
     public void setPhoto(File photo) {
         this.photo = photo;
     }
+    public static final Finder<String, Artista> find = new Finder<String, Artista>(Artista.class);
 }

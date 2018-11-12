@@ -1,7 +1,6 @@
 package models.base;
 
-import io.ebean.Model;
-
+import io.ebean.*;
 import java.util.*;
 import javax.persistence.*;
 
@@ -13,13 +12,10 @@ public class Agenda extends Model {
     private Date data;
     private String horaInicio;
     private String horaFim;
-    private String descricao;
-    private int evento_id;
-   // @OneToOne(mappedBy="evento_id")
+    @OneToOne
     private Evento evento;
 
-    public Agenda() {
-    }
+    public Agenda() {}
 
     public Date getData() {
         return data;
@@ -45,11 +41,5 @@ public class Agenda extends Model {
         this.horaFim = horaFim;
     }
 
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
+    public static Finder<String, Agenda> find = new Finder<String, Agenda>(Agenda.class);
 }

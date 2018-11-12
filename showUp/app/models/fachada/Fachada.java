@@ -1,5 +1,7 @@
 package models.fachada;
 
+import java.util.List;
+
 import models.abstractfactory.FabricaRepositorioDB;
 import models.base.Artista;
 import models.base.Contratante;
@@ -54,5 +56,8 @@ public class Fachada
 
     public void deletarContratante(String cpf) {
         contratanteControlador.deletar(cpf);
+    }
+    public List<Contratante> all(){
+        return contratanteControlador.all();
     }
 }
