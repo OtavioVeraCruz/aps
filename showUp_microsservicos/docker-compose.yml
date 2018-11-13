@@ -1,0 +1,38 @@
+version: '3'
+services:
+  service_front-end:
+    build: service_front-end/
+    links:
+      - service_facada
+    ports:
+      - "8080:8080"
+  service_facada:
+    build: service_facada/
+    links:
+      - service_event
+      - service_contratante
+    ports:
+      - "9000:8080"
+  service_event:
+    build: service_event/
+    ports:
+      - "9010:8080"
+  service_event_db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: pass123
+    ports:
+      - "9020:8080"
+  service_contratante:
+    build: service_contratante/
+    ports:
+      - "9030:8080"
+
+  service_contratante_bd:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: pass123
+    ports:
+      - "9040:8080"
