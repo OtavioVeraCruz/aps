@@ -17,7 +17,6 @@ public class Evento extends Model {
     @OneToOne(mappedBy="evento")
     private Agenda agenda;
     @ManyToOne
-    @JoinColumn(name = "contratante_id", referencedColumnName = "cpf")
     private Contratante contratante;
 
     @ManyToMany(mappedBy="eventos")
@@ -25,7 +24,8 @@ public class Evento extends Model {
 
     public Evento() {
     }
-    public Evento(String nome,String descricao,Endereco endereco,double preco,ArrayList<String> instrumentos,Agenda agenda) {
+    public Evento(String nome,String descricao,Endereco endereco,double preco,ArrayList<String>
+    instrumentos,Agenda agenda) {
         this.nome=nome;
         this.descricao=descricao;
         this.endereco=endereco;
@@ -84,5 +84,5 @@ public class Evento extends Model {
         this.descricao = descricao;
     }
 
-    public static Finder<String, Evento> find = new Finder<String, Evento>(Evento.class);
+    public static Finder<Integer, Evento> find = new Finder<Integer, Evento>(Evento.class);
 }

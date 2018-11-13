@@ -14,7 +14,8 @@ public class Contratante extends Usuario {
     List<Evento> eventos;
     @OneToOne
     private Endereco endereco;
-    public Contratante(String cpf, String nome, String email,String senha, Endereco endereco, ArrayList<Evento> eventos, Date date) {
+    public Contratante(String cpf, String nome, String email,String senha, Endereco endereco,
+     ArrayList<Evento> eventos, Date date) {
        super(cpf, nome, email,senha, date); 
        this.endereco=endereco;
        this.eventos=eventos;

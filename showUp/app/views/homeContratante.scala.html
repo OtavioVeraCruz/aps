@@ -1,34 +1,10 @@
 @(usuario : base.Usuario,artistas : List[base.Artista])
 
 @main("Home"){
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">ShowUp!</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav">
-                <li class="nav-item active">
-                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="@routes.ContratanteController.meusEventos">Meus Eventos</a>
-                </li>
-                <li class="nav-item">
-                   <a class="nav-link" href="@routes.ContratanteController.criarEvento">Criar Evento</a>     
-                </li>
-                
-                <li class="nav-item">
-                  <a class="nav-link" href="@routes.HomeController.index">Sair</a>
-                </li>
-              </ul>
-            </div>
-    </nav>
-
+    @navContratante()
     <div class="container">
       @if(usuario.isInstanceOf[base.Contratante]){
-        @listArtista(artistas)
+        @listartista(artistas)
       }      
     </div>
 }

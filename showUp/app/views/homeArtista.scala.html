@@ -1,6 +1,7 @@
-@(usuario : base.Usuario,eventos: ArrayList[base.Evento])
+@(usuario : base.Usuario,eventos: List[base.Evento])
 
 @main("Home"){
-
-
+  
+      @navArtista()
+      <div class="container">@listEventos(eventos)</div>
 }

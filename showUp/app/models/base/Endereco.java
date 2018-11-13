@@ -90,5 +90,5 @@ public class Endereco extends Model
         this.pais = pais;
     }
     
-    public static Finder<String, Endereco> find = new Finder<String, Endereco>(Endereco.class);
+    public static Finder<Integer, Endereco> find = new Finder<Integer, Endereco>(Endereco.class);
 }
