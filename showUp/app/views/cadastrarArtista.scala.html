@@ -12,7 +12,11 @@
                     @helper.inputText(formArtista("email"),'_label -> ("E-mail:"))
 					@helper.inputPassword(formArtista("senha"),'_label -> ("Senha:"))
 					@helper.inputDate(formArtista("date"),'_label -> ("Data de Nascimento:"))
-					@helper.inputFile(formArtista("foto"),'_label -> ("Imagem do perfil:"))
+					@helper.inputFile(formArtista("photo"),'_label -> ("Imagem do perfil:"))
+					@helper.inputFile(formArtista("instrumentos"),'_label -> ("Instrumentos que possui:"))
+					@helper.inputFile(formArtista("generoMusical"),'_label -> ("Preço por show:"))
+					@helper.inputFile(formArtista("linkRedesSocial"),'_label -> ("Link para Redes sociais:"))
+
 					<h3>Endereço:</h3>	
 					@helper.inputText(formArtista("cep"),'_label -> ("CEP:"))
 					@helper.inputText(formArtista("rua"),'_label -> ("Rua:"))
@@ -26,12 +30,15 @@
 						<div class="col-md-4"><button type="Submit"  class="btn btn-success">Cadastrar</button></div>	
 					</div>
 
+				
 					@if(formArtista.hasGlobalErrors) {
-						<p class="error">
-							@for(error <- formArtista.globalErrors) {
-								<p>@error.format(messages())</p>
-							}
-						</p>
+						<div class="alert alert-danger" role="alert">
+							<p class="error">
+								@for(error <- formArtista.globalErrors) {
+									<p>@error.format(messages())</p>
+								}
+							</p>
+						</div>
 					}
 		}
 	</div>

@@ -15,7 +15,7 @@ public class HomeController extends Controller {
 	private FormFactory formFactory;
  	private Fachada fachada;
 
- 	 @Inject
+ 	@Inject
     public HomeController(FormFactory formFactory) {
         this.formFactory = formFactory;
         this.fachada=Fachada.getInstance();	
@@ -27,11 +27,19 @@ public class HomeController extends Controller {
 
     public Result registerContratante(){
     	Form<Contratante>formContratante=formFactory.form(Contratante.class);
-        return ok(views.html.cadastrarContratante.render(formContratante));
+        return ok(views.html.cadastrarContratante.render(formContratante,null));
     }
     public Result registerArtista(){
         Form<Artista>formArtista=formFactory.form(Artista.class);
         return ok(views.html.cadastrarArtista.render(formArtista));
+    }
+    public Result logout() {
+        return ok(index.render("ShowUp!"));
+    }
+
+    public Result all(){
+        List<Contratante> all=this.fachada.all();
+        return ok(views.html.all.render(all));
     }
 
 }

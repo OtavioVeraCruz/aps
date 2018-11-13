@@ -1,4 +1,4 @@
-@(usuario : base.Usuario,usuarios : List[base.Usuario])
+@(usuario : base.Usuario,artistas : List[base.Artista])
 
 @main("Home"){
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -12,15 +12,13 @@
                 <li class="nav-item active">
                   <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                 </li>
-
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Meus Eventos</a>
+                  <a class="nav-link" href="@routes.ContratanteController.meusEventos">Meus Eventos</a>
                 </li>
-                @if(usuario.isInstanceOf[base.Contratante]){
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Criar Evento</a>     
-                    </li>
-                }
+                <li class="nav-item">
+                   <a class="nav-link" href="@routes.ContratanteController.criarEvento">Criar Evento</a>     
+                </li>
+                
                 <li class="nav-item">
                   <a class="nav-link" href="@routes.HomeController.index">Sair</a>
                 </li>
@@ -30,13 +28,7 @@
 
     <div class="container">
       @if(usuario.isInstanceOf[base.Contratante]){
-        @listartista(usuarios)
-       }else{
-        <div id="list-artista" class="row">
-            <div class="col-md-6"><h3>Eventos Recentes</h3></div>
-            <div class="col-md-8"></div> 
-        </div>  
-      }  
-      
+        @listArtista(artistas)
+      }      
     </div>
 }

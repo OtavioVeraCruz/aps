@@ -1,5 +1,7 @@
 package models.cadastro;
 
+import java.util.List;
+
 import models.base.Contratante;
 import models.repositorio.interfaces.IRepositorioContratante;
 
@@ -30,6 +32,10 @@ public class ContratanteCadastro
     public void deletar(String cpf)
     {
         repositorioContratante.deletar(cpf);
+    }
+
+    public List<Contratante> all(){
+        return repositorioContratante.all();
     }
 
 }

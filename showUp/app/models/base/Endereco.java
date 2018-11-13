@@ -1,6 +1,6 @@
 package models.base;
 
-import io.ebean.Model;
+import io.ebean.*;
 import javax.persistence.*;
 
 @Entity
@@ -15,7 +15,12 @@ public class Endereco extends Model
     private String cidade;
     private String estado;
     private String pais;
-
+    @OneToOne(mappedBy="endereco")
+    private Artista artista;
+    @OneToOne(mappedBy="endereco")
+    private Contratante contratante;
+    @OneToOne(mappedBy="endereco")
+    private Evento evento;    
     public Endereco() {
     }
 
@@ -84,6 +89,6 @@ public class Endereco extends Model
     public void setPais(String pais) {
         this.pais = pais;
     }
-
     
+    public static Finder<String, Endereco> find = new Finder<String, Endereco>(Endereco.class);
 }
