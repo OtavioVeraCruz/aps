@@ -20,8 +20,9 @@ public class Artista extends Usuario {
 
     public Artista() { }
 
-    public Artista(String cpf, String nome,String email, String senha, Endereco endereco/*, ArrayList<Evento> eventos*/, Date date, String generoMusical,
-                   ArrayList<String> instrumentos, double precoShow, ArrayList<String> linkRedesSocial, File photo) {
+    public Artista(String cpf, String nome,String email, String senha, Endereco endereco, Date date,
+     String generoMusical,ArrayList<String> instrumentos, double precoShow, 
+     ArrayList<String> linkRedesSocial, File photo) {
         super(cpf, nome,email, senha/*, endereco, eventos*/, date);
         this.generoMusical = generoMusical;
         this.instrumentos = instrumentos;

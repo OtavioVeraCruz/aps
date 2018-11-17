@@ -1,6 +1,13 @@
 @(evento : base.Evento)
 @main("Evento"){
+  
+    @navArtista()
     @if(evento !=null){
-        
+        <div class="container">
+                <p>Título: @evento.getNome()</p>  
+                <p>Descrição: @evento.getDescricao()</p>
+                <p>Preço: @evento.getPreco()</p>
+        </div>
+             
     }
 }

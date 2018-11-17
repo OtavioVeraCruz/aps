@@ -16,7 +16,11 @@ public class Agenda extends Model {
     private Evento evento;
 
     public Agenda() {}
-
+    public Agenda(Date data,String horaInicio,String horaFim) {
+        this.data=data;
+        this.horaInicio=horaInicio;
+        this.horaFim=horaFim;
+    }
     public Date getData() {
         return data;
     }
@@ -41,5 +45,5 @@ public class Agenda extends Model {
         this.horaFim = horaFim;
     }
 
-    public static Finder<String, Agenda> find = new Finder<String, Agenda>(Agenda.class);
+    public static Finder<Integer, Agenda> find = new Finder<Integer, Agenda>(Agenda.class);
 }
