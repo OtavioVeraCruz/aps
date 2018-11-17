@@ -19,7 +19,7 @@ public class Fachada
 
     private Fachada() {
 
-        FabricaRepositorioDB fabricaRepositorioDB=new FabricaRepositorioDB();
+        FabricaRepositorio fabricaRepositorio = getRepositorio();
         this.artistaControlador = new ArtistaControlador(fabricaRepositorioDB.criaRepositorioArtista());
         this.contratanteControlador = new ContratanteControlador(fabricaRepositorioDB.criaRepositorioContratante());
 
@@ -59,5 +59,44 @@ public class Fachada
     }
     public List<Contratante> all(){
         return contratanteControlador.all();
+    }
+
+    public FabricaRepositorio getRepositorio(){
+        BufferedReader br = null;
+        FileReader fr = null;
+        try {
+
+            //br = new BufferedReader(new FileReader(FILENAME));
+            fr = new FileReader("ConfigDB.config");
+            br = new BufferedReader(fr);
+
+            String sCurrentLine;
+            String db = "";
+            while ((sCurrentLine = br.readLine()) != null) {
+
+            }
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+
+        } finally {
+
+            try {
+
+                if (br != null)
+                    br.close();
+
+                if (fr != null)
+                    fr.close();
+
+            } catch (IOException ex) {
+
+                ex.printStackTrace();
+
+            }
+
+        }
+        return null;
     }
 }
